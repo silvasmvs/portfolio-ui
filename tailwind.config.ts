@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        grayLabel: "#E4E4E7",
+        "zinc-900": "#111827",
       },
     },
   },
