@@ -1,18 +1,13 @@
 'use client';
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Label } from "./components/Label";
 import { motion } from "framer-motion";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
@@ -29,47 +24,52 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} antialiased`}
       >
-        <div className="grid grid-rows-[100vh_100vh_100vh_60px] min-h-screen">
-          <div className="bg-red-500 text-white flex flex-col">
-            <nav className="bg-purple-500 text-white p-4 justify-between flex flex-row min-h-[92px] items-center">
-                <h1 className="text-lg">Mauricio Silva</h1>
-                <ul className="flex space-x-4">
+        <div className="grid grid-rows-[100vh_100vh_70rem_60px] min-h-screen">
+          <section className="bg-red-500 text-white flex flex-col">
+            <nav className="bg-white p-4 justify-between flex flex-row min-h-[92px] items-center">
+                <h1 className="text-lg text-zinc-900">Mauricio Silva</h1>
+                <ul className="flex space-x-4 text-zinc-900">
                   <li><a href="#">Página inicial</a></li>
                   <li><a href="#">Sobre</a></li>
                   <li><a href="#">Contato</a></li>
                 </ul>
             </nav>
-              <div className="bg-green-500 text-white p-16 h-full flex flex-row">
-                <div className="bg-blue-500 text-white p-4 h-full justify-center items-start flex flex-col w-4/6">
-                  <span>Olá, eu sou</span>
+              <div className="bg-white text-white p-16 h-full flex flex-row">
+                <div className="bg-white text-white p-4 h-full justify-center items-start flex flex-col w-4/6">
+                  <span className="text-zinc-900 font-normal text-base font-[family-name:var(--font-montserrat)]">Olá, eu sou</span>
                   <motion.h1
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1 }} // Tempo da animação em segundos
-                    className="text-5xl font-bold"
+                    className="
+                      text-5xl font-medium
+                      text-zinc-900
+                      font-[family-name:var(--font-montserrat)]
+                    "
                   >
                     MAURICIO SILVA
                   </motion.h1>
                   
                   <div className="mt-5 flex flex-col">
-                    <span>A curiosity driven frontend developer with design chops 🎨.</span>
-                    <span>I believe its OK to be you, You is dope.!</span>
+                    <span className="text-zinc-900">A curiosity driven frontend developer with design chops 🎨.</span>
+                    <span className="text-zinc-900">I believe its OK to be you, You is dope.!</span>
                   </div>
                 </div>
-                <div className="bg-yellow-500 text-white p-4 h-full w-2/6 flex justify-center items-center">
-                  <img width={400} src="profile.png" />
+                <div className="bg-white p-4 h-full w-2/6 flex justify-center items-center">
+                  <img width={350} src="profile.png" />
                 </div>
               </div>
-          </div>
-          <div className="bg-white text-zinc-900 p-4 flex flex-col justify-start items-center ">
+          </section>
+          <section className="bg-zinc-50 text-zinc-900 p-4 flex flex-col justify-start items-center py-[6rem]">
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }} // Tempo da animação em segundos
+              className="text-2xl font-semibold"
             >
               A BIT ‘BOUT MY JOURNEY
             </motion.h1>
@@ -119,9 +119,73 @@ export default function RootLayout({
               <Label name="Sass" iconUrl="labels/icon-sass.svg" />
               <Label name="Storybook" iconUrl="labels/icon-storybook.svg" />
             </ul>
-          </div>
-          <div className="bg-yellow-500 text-white p-4">Work</div>
-          <div className="bg-red-500 text-white p-4">Footer</div>
+          </section>
+          <section className="bg-white text-zinc-900 p-[6rem] flex flex-col justify-start items-center">
+            <div className="max-w-[700px] gap-1">
+              <h1 className="text-2xl font-semibold">Work</h1>
+              <h2 className="font-normal text-base mt-1">Check out some of my recent work – cool products I’ve been part of, built using the latest
+                tech and libraries to create something awesome!</h2>
+
+              <div className="flex flex-row mt-8 bg-white p-4 justify-center items-start gap-4">
+                <div className="min-w-[60px]">
+                  <img height={60} width={60} src="logos/ClassApp.png" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="font-semibold text-lg">Engenheiro de Software Sênior</span>
+                  <div className="flex gap-2">
+                    <span>ClassApp</span>
+                    <span>2019 - 2021</span>
+                  </div>
+                  <p>
+                    Construção de sistemas distribuídos através de microfrontends utilizando module federation
+                    Implantação em projetos e melhorias no design system
+                    Construção de estruturas cross e boilerplates para a contribuição com diversos times
+                    Documentação em sistemas legados e novos projetos
+                    Ajuda nas tomadas de decisão sobre arquiteturas e formas de escalabilidade no frontend
+                    Estruturação de feature em projetos utilizando Next JS, Trpc, GraphQL,React-Query e Capacitor JS
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                  </div>
+                </div>
+                
+              </div>
+
+              <div className="flex flex-row mt-8 bg-white p-4 justify-center items-start gap-4">
+                <div className="min-w-[60px]">
+                  <img height={60} width={60} src="logos/ClassApp.png" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="font-semibold text-lg">Engenheiro de Software Sênior</span>
+                  <div className="flex gap-2">
+                    <span>ClassApp</span>
+                    <span>2019 - 2021</span>
+                  </div>
+                  <p>
+                    Construção de sistemas distribuídos através de microfrontends utilizando module federation
+                    Implantação em projetos e melhorias no design system
+                    Construção de estruturas cross e boilerplates para a contribuição com diversos times
+                    Documentação em sistemas legados e novos projetos
+                    Ajuda nas tomadas de decisão sobre arquiteturas e formas de escalabilidade no frontend
+                    Estruturação de feature em projetos utilizando Next JS, Trpc, GraphQL,React-Query e Capacitor JS
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                    <Label small name="Storybook" iconUrl="labels/icon-storybook.svg" />
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+          <footer className="bg-red-500 text-white p-4">Footer</footer>
         </div>
         {/*children*/}
       </body>

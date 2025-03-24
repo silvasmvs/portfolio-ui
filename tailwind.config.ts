@@ -13,6 +13,7 @@ export default {
         foreground: "var(--foreground)",
         grayLabel: "#E4E4E7",
         "zinc-900": "#111827",
+        "zinc-50": "#FAFAFA"
       },
     },
   },
